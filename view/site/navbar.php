@@ -9,6 +9,10 @@ $navbar = [
             "title" => "Report",
             "route" => "report",
         ],
+        "remserver" => [
+            "title" => "Remserver",
+            "route" => "remserver",
+        ],
         "about" => [
             "title" => "About",
             "route" => "about",
