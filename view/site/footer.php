@@ -1,6 +1,7 @@
 
-      <footer class="footer">
+    <br />
+    <footer class="footer">
         <p>&copy; Simon "Lösningen" Huang 2017</p>
-      </footer>
+    </footer>
 
     </div> <!-- /container -->

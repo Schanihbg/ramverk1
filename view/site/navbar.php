@@ -13,6 +13,10 @@ $navbar = [
             "title" => "Remserver",
             "route" => "remserver",
         ],
+        "comment" => [
+            "title" => "Comment",
+            "route" => "comment",
+        ],
         "about" => [
             "title" => "About",
             "route" => "about",
