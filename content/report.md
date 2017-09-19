@@ -50,6 +50,24 @@ Funderade lite och kom väl fram till att det krävs en databas, ett interface k
 Kmom02
 =========================
 
+**Vilka tidigare erfarenheter har du av MVC? Använde du någon speciell källa för att läsa på om MVC? Kan du med egna ord förklara någon fördel med kontroller/modell-begreppet, så som du ser på det?**
+
+Har tydligen jobbat med MVC innan i Webapp, men det var så länge sedan nu så man har glömt. Jag läste på om MVC på Wikipedia. Vad jag förstår det som så delar man upp koden i relevanta kodstycken. Där vyn används för att rendera allting som ska visas, väl här inne så ska det inte finnas någon logik som t.ex. ta bort något i databasen. MVC är uppdelat i tre delar: Model, View och Controller.
+
+**Kom du fram till vad begreppet SOLID innebar och vilka källor använde du? Kan du förklara SOLID på ett par rader med dina egna ord?**
+
+Läste lite på Wikipedia, men jag blev inte klokare utav den artikeln. Verkar fatta det som att det är fem designprinciper som ska göra programmering utav mjukvara lite mer lättläsliga och enklare att uppfatta.
+
+**Gick arbetet med REM servern bra och du lyckades integrera den i din me-sida?**
+
+Det gick bra att följa efter guiden som fanns, det tog inte så lång tid efter man hade testat det i anax2. Det var ungefär bara 6st filer som behövdes läggas till i anax.
+
+**Berätta om arbetet med din kommentarsmodul, hur långt har du kommit och hur tänker du?**
+
+Jag har gjorde alla kraven som stod på sidan. Nu har det blivit lite som ett RESTapi blandat med lite formulär. Men det fungerar ser det ut som. Nu kan vem som helst ta bort en post utan auth, på grund av att det fungerar som ett RESTapi.  
+Vet dock inte om jag har gjort rätt gällande kontroller/modeller. För personligen tycker jag att allt detta med MVC är bara krångligt att greppa. Varför inte bara skippa controller och bara köra all kod i model direkt? För just nu i kmom02 så pekar alla funktioner på modellen, vilket skapar bara en extra ”onödig” fil.
+
+
 Kmom03
 =========================
 
