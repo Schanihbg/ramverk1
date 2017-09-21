@@ -71,6 +71,31 @@ Vet dock inte om jag har gjort rätt gällande kontroller/modeller. För personl
 Kmom03
 =========================
 
+**Hur känns det att jobba med begreppen kring dependency injection, service locator och lazy loading?**
+
+Det är mycket bättre att saker lazy-loadar istället för att allting laddas på en gång. Det sparar väl en liten mängd minne. Det sparar även lite bandbredd så man slipper ladda lite extra data.
+
+**Hur känns det att göra dig av med beroendet till $app, blir $di bättre?**
+
+Jag har absolut ingen aning bytet till $di gjorde någon skillnad mot $app. Det har blivit rätt så flummigt om vad fördelarna och nackdelarna är på de två. Det verkar dock som att ifall man lägga till fler moduler så blir det enklare än innan i $app.
+
+**Hur känns det att återigen göra refaktoring på din me-sida, blir det förbättringar på kodstrukturen, eller bara annorlunda?**
+
+Gjorde inte så mycket refaktoring av min kod i mån förbättringar då. Men det blev ett par rader som fick skrivas om till $di kompatibel kod. Vad jag ser så blir det bara mer kod som gör samma saker. Det kanske blir bättre i slutändan.
+
+**Lyckades du införa begreppen kring DI när du vidareutvecklade ditt kommentarssystem?**
+
+Ja, det gick bra att införa DI i mitt kommentarssystem. Hade bara glömt ändra setDI på modellen från början, men insåg det och nu funkar det som det ska. Hoppas att jag har gjort det rätt med hur man ska använda funktionerna från databas och sånt.
+
+**Påbörjade du arbetet (hur gick det) med databasmodellen eller avvaktar du till kommande kmom?**
+
+Jag implementerade redan en MySQL databas i kmom02. Jag får se hur det blir nästa kursmoment om jag behöver göra om en massa eller inte.
+
+**Allmänna kommentarer kring din me-sida och dess kodstruktur?**
+
+Den ser väl ok ut, jag använder Bootstrap 4 beta. Tycker det är lite jobbigt att det är så många filer man måste ändra i för att få småsaker gjorda.
+
+
 Kmom04
 =========================
 
