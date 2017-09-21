@@ -2,18 +2,18 @@
 
 namespace Anax\Comment;
 
-use \Anax\Common\AppInjectableInterface;
-use \Anax\Common\AppInjectableTrait;
+use \Anax\DI\InjectionAwareInterface;
+use \Anax\DI\InjectionAwareTrait;
 use \Anax\Configure\ConfigureInterface;
 use \Anax\Configure\ConfigureTrait;
 
 /**
  * REM Server.
  */
-class CommentModel implements ConfigureInterface, AppInjectableInterface
+class CommentModel implements ConfigureInterface, InjectionAwareInterface
 {
     use ConfigureTrait;
-    use AppInjectableTrait;
+    use InjectionAwareTrait;
 
 
     /**
@@ -31,15 +31,15 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
 
 
     /**
-     * Inject dependencies.
+     * Inject dependency to $session..
      *
-     * @param array $dependency key/value array with dependencies.
+     * @param array $session object representing session.
      *
      * @return self
      */
-    public function inject($dependency)
+    public function injectSession($session)
     {
-        $this->session = $dependency["session"];
+        $this->session = $session;
         return $this;
     }
 
@@ -53,9 +53,9 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
     {
         $sql = "SELECT * FROM `ramverk1_comment`";
 
-        $data = $this->app->database->executeFetchAll($sql);
-        $this->app->view->add("comment/main", ["content" => $data]);
-        $this->app->renderPage(["title" => "All comments"]);
+        $data = $this->di->get("database")->executeFetchAll($sql);
+        $this->di->get("view")->add("comment/main", ["content" => $data]);
+        $this->di->get("pageRender")->renderPage(["title" => "All comments"]);
     }
 
     /**
@@ -65,8 +65,8 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
      */
     public function newPost()
     {
-        $this->app->view->add("comment/new_comment");
-        $this->app->renderPage(["title" => "New comment"]);
+        $this->di->get("view")->add("comment/new_comment");
+        $this->di->get("pageRender")->renderPage(["title" => "New comment"]);
     }
 
     /**
@@ -76,8 +76,8 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
      */
     public function newPostAction()
     {
-        $this->app->view->add("comment/new_comment_action");
-        $this->app->renderPage(["title" => "New comment action"]);
+        $this->di->get("view")->add("comment/new_comment_action");
+        $this->di->get("pageRender")->renderPage(["title" => "New comment action"]);
     }
 
     /**
@@ -89,9 +89,9 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
     {
         $sql = "SELECT * FROM ramverk1_comment where id = ?";
 
-        $data = $this->app->database->executeFetch($sql, [$id]);
-        $this->app->view->add("comment/post", ["content" => $data]);
-        $this->app->renderPage(["title" => "Post id ".$id]);
+        $data = $this->di->get("database")->executeFetch($sql, [$id]);
+        $this->di->get("view")->add("comment/post", ["content" => $data]);
+        $this->di->get("pageRender")->renderPage(["title" => "Post id ".$id]);
     }
 
     /**
@@ -103,10 +103,10 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
     {
         $sql = "SELECT * FROM ramverk1_comment where id = ?";
 
-        $data = $this->app->database->executeFetch($sql, [$id]);
+        $data = $this->di->get("database")->executeFetch($sql, [$id]);
 
-        $this->app->view->add("comment/update_comment", ["content" => $data]);
-        $this->app->renderPage(["title" => "Update comment"]);
+        $this->di->get("view")->add("comment/update_comment", ["content" => $data]);
+        $this->di->get("pageRender")->renderPage(["title" => "Update comment"]);
     }
 
     /**
@@ -116,11 +116,8 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
      */
     public function editPostAction()
     {
-        // $sql = "DELETE FROM ramverk1_comment WHERE id = ?";
-        // $this->app->database->execute($sql, [$id]);
-
-        $this->app->view->add("comment/update_comment_action");
-        $this->app->renderPage(["title" => "New comment action"]);
+        $this->di->get("view")->add("comment/update_comment_action");
+        $this->di->get("pageRender")->renderPage(["title" => "Update comment action"]);
     }
 
     /**
@@ -131,8 +128,8 @@ class CommentModel implements ConfigureInterface, AppInjectableInterface
     public function removePost($id)
     {
         $sql = "DELETE FROM ramverk1_comment WHERE id = ?";
-        $this->app->database->execute($sql, [$id]);
-        $this->app->redirect("comment");
+        $this->di->get("database")->execute($sql, [$id]);
+        $this->di->get("response")->redirect($this->di->get("url")->create("comment"));
     }
 
     /**

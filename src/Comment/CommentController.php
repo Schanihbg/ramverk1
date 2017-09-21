@@ -2,17 +2,17 @@
 
 namespace Anax\Comment;
 
-use \Anax\Common\AppInjectableInterface;
-use \Anax\Common\AppInjectableTrait;
+use \Anax\DI\InjectionAwareInterface;
+use \Anax\DI\InjectionAwareTrait;
 
 /**
  * A controller for the REM Server.
  *
  * @SuppressWarnings(PHPMD.ExitExpression)
  */
-class CommentController implements AppInjectableInterface
+class CommentController implements InjectionAwareInterface
 {
-    use AppInjectableTrait;
+    use InjectionAwareTrait;
 
 
     /**
@@ -22,7 +22,7 @@ class CommentController implements AppInjectableInterface
      */
     public function viewAll()
     {
-        $this->app->comment->viewAll();
+        $this->di->get("comment")->viewAll();
     }
 
     /**
@@ -32,7 +32,7 @@ class CommentController implements AppInjectableInterface
      */
     public function newPost()
     {
-        $this->app->comment->newPost();
+        $this->di->get("comment")->newPost();
     }
 
     /**
@@ -42,7 +42,7 @@ class CommentController implements AppInjectableInterface
      */
     public function newPostAction()
     {
-        $this->app->comment->newPostAction();
+        $this->di->get("comment")->newPostAction();
     }
 
     /**
@@ -52,7 +52,7 @@ class CommentController implements AppInjectableInterface
      */
     public function showOnePost($id)
     {
-        $this->app->comment->showOnePost($id);
+        $this->di->get("comment")->showOnePost($id);
     }
 
     /**
@@ -62,7 +62,7 @@ class CommentController implements AppInjectableInterface
      */
     public function editPost($id)
     {
-        $this->app->comment->editPost($id);
+        $this->di->get("comment")->editPost($id);
     }
 
     /**
@@ -72,7 +72,7 @@ class CommentController implements AppInjectableInterface
      */
     public function editPostAction()
     {
-        $this->app->comment->editPostAction();
+        $this->di->get("comment")->editPostAction();
     }
 
     /**
@@ -82,6 +82,6 @@ class CommentController implements AppInjectableInterface
      */
     public function removePost($id)
     {
-        $this->app->comment->removePost($id);
+        $this->di->get("comment")->removePost($id);
     }
 }

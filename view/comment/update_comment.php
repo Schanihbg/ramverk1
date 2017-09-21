@@ -8,6 +8,6 @@
         <textarea name="comment_area" class="form-control" rows="3" required><?=$content->comment?></textarea>
     </div>
     <input type="hidden" name="id" value="<?=$content->id?>">
-    <a class="btn btn-outline-primary" href="<?=$this->app->url->create("comment/post/".$content->id)?>">Go back</a>
+    <a class="btn btn-outline-primary" href="<?=$this->di->get("url")->create("comment/post/".$content->id)?>">Go back</a>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
