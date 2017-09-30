@@ -59,6 +59,6 @@ class CreateForm extends FormModel
         $book->title  = $this->form->value("title");
         $book->author = $this->form->value("author");
         $book->save();
-        $this->di->get("response")->redirect("../book");
+        $this->di->get("response")->redirect("book");
     }
 }

@@ -74,6 +74,6 @@ class DeleteForm extends FormModel
         $book->setDb($this->di->get("database"));
         $book->find("id", $this->form->value("select"));
         $book->delete();
-        $this->di->get("response")->redirect("../book");
+        $this->di->get("response")->redirect("book");
     }
 }

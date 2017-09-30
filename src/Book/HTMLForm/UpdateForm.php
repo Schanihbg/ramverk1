@@ -92,6 +92,6 @@ class UpdateForm extends FormModel
         $book->title = $this->form->value("title");
         $book->author = $this->form->value("author");
         $book->save();
-        $this->di->get("response")->redirect("{$book->id}");
+        $this->di->get("response")->redirect("book/update/{$book->id}");
     }
 }
