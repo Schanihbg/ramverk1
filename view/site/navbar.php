@@ -17,6 +17,10 @@ $navbar = [
             "title" => "Comment",
             "route" => "comment",
         ],
+        "book" => [
+            "title" => "Book",
+            "route" => "book",
+        ],
         "about" => [
             "title" => "About",
             "route" => "about",

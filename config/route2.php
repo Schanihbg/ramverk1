@@ -32,8 +32,14 @@ return [
             "file" => __DIR__ . "/route2/comment.php",
         ],
         [
+            // Add routes from bookController and mount on book/
+            "mount" => "book",
+            "file" => __DIR__ . "/route2/bookController.php",
+        ],
+        [
             // Keep this last since its a catch all
             "mount" => null,
+            "sort" => 99,
             "file" => __DIR__ . "/route2/404.php",
         ],
     ],

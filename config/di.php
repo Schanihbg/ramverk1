@@ -147,5 +147,13 @@ return [
                 return $database;
             }
         ],
+        "bookController" => [
+            "shared" => true,
+            "callback" => function () {
+                $obj = new \Anax\Book\BookController();
+                $obj->setDI($this);
+                return $obj;
+            }
+        ],
     ],
 ];
