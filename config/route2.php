@@ -37,6 +37,11 @@ return [
             "file" => __DIR__ . "/route2/bookController.php",
         ],
         [
+            // Add routes from userController and mount on user/
+            "mount" => "user",
+            "file" => __DIR__ . "/route2/userController.php",
+        ],
+        [
             // Keep this last since its a catch all
             "mount" => null,
             "sort" => 99,

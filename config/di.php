@@ -16,7 +16,11 @@ return [
         ],
         "response" => [
             "shared" => true,
-            "callback" => "\Anax\Response\Response",
+            "callback" => function () {
+                $obj = new \Anax\Response\ResponseUtility();
+                $obj->setDI($this);
+                return $obj;
+            }
         ],
         "url" => [
             "shared" => true,
@@ -61,9 +65,12 @@ return [
         ],
         "session" => [
             "shared" => true,
+            "active" => true,
             "callback" => function () {
                 $session = new \Anax\Session\SessionConfigurable();
                 $session->configure("session.php");
+                $session->name("ThisDoesNotMatter");
+                $session->start();
                 return $session;
             }
         ],
@@ -138,6 +145,21 @@ return [
                 return $commentController;
             }
         ],
+        "gravatar" => [
+            "shared" => true,
+            "callback" => function () {
+                $gravatar = new \Anax\Gravatar\GravatarModel();
+                return $gravatar;
+            }
+        ],
+        "gravatarController" => [
+            "shared" => false,
+            "callback" => function () {
+                $gravatarController = new \Anax\Gravatar\GravatarController();
+                $gravatarController->setDI($this);
+                return $gravatarController;
+            }
+        ],
         "database" => [
             "shared" => true,
             "callback" => function () {
@@ -151,6 +173,14 @@ return [
             "shared" => true,
             "callback" => function () {
                 $obj = new \Anax\Book\BookController();
+                $obj->setDI($this);
+                return $obj;
+            }
+        ],
+        "userController" => [
+            "shared" => true,
+            "callback" => function () {
+                $obj = new \Anax\User\UserController();
                 $obj->setDI($this);
                 return $obj;
             }

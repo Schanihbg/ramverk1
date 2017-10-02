@@ -502,16 +502,16 @@
         },
         {
             "name": "anax/textfilter",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/canax/textfilter.git",
-                "reference": "16999dc137d005f332e71459802f44310309f7f1"
+                "reference": "0fe7b6839a86a2256d22b7f59d10ee92663f89f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/canax/textfilter/zipball/16999dc137d005f332e71459802f44310309f7f1",
-                "reference": "16999dc137d005f332e71459802f44310309f7f1",
+                "url": "https://api.github.com/repos/canax/textfilter/zipball/0fe7b6839a86a2256d22b7f59d10ee92663f89f1",
+                "reference": "0fe7b6839a86a2256d22b7f59d10ee92663f89f1",
                 "shasum": ""
             },
             "require": {
@@ -552,7 +552,7 @@
                 "micro",
                 "mvc"
             ],
-            "time": "2017-08-03T08:24:17+00:00"
+            "time": "2017-10-02T10:25:31+00:00"
         },
         {
             "name": "anax/url",

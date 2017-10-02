@@ -46,6 +46,9 @@ $navbar = [
             }
             ?>
             </ul>
+            <ul class="navbar-nav navbar-right">
+                <li><a class="nav-link <?= $this->di->get("request")->getRoute() == "user" ? "active" : "" ?>" href="<?= $this->di->get("url")->create("user")?>">Profile</a></li>
+            </ul>
         </div>
     </nav>
 </div>
