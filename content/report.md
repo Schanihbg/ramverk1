@@ -99,6 +99,30 @@ Den ser väl ok ut, jag använder Bootstrap 4 beta. Tycker det är lite jobbigt 
 Kmom04
 =========================
 
+**Hur gick det att integrera formulärhantering och databashantering i ditt kommentarssystem?**
+
+Det var inte så svårt att få in båda sakerna. För jag redan hade databashantering kopplat till mitt kommentarsystem. Formuläret var heller inte så svårt eftersom att jag har jobbat en del med databaser innan och att man kunde bara göra samma saker som man gjorde i övningarna direkt till sin skarpa sida istället.
+
+**Berätta om din syn på Active record och liknande upplägg, ser du fördelar och nackdelar?**
+
+Ser att en fördel att det blir objektorienterad programmering istället för att skriva en SQL-sats och sen bara skicka in data till frågetecknet.  Sen kan man bygga in flera checkar som körs varje gång, typ om det verkligen finns data och eventuell felhantering.
+
+**Utveckla din syn på koden du nu har i ramverket och din kommentars- och användarkod. Hur känns det?**
+
+Jag har fortfarande svårt att skilja på om man ska skriva sin kod som gör saker i Model eller Controller, alla exempel vi har fått så är de skrivna på olika sätt. Vissa har bara saker i Model, vissa har bara i Controller och vissa har saker i båda. Det är lite förvirrande.
+Annars så är jag rätt nöjd med vad jag har producerat till min kod.
+
+
+**Om du vill, och har kunskap om, kan du även berätta om din syn på ORM och designmönstret Data Mapper som är närbesläktade med Active Record. Du kanske har erfarenhet av likande upplägg i andra sammanhang?**
+
+Jag ser det som att man har färdiga funktioner som gör saker den bara ska göra, då kan bygga in extra checkar. Jämfört med att skriva en SQL-sats rakt av. Annars så har jag inte använt det förut. Inte vad jag vet i alla fall.
+
+**Vad tror du om begreppet scaffolding, kan det vara något att kika mer på?**
+
+Det kan vara bra ifall man vill skapa om ett projekt hela tiden, men tänker mig att det passar bäst i en testmiljö. Fast då har man alltid ett fungerande snapshot som man går tillbaka till. Men ja det kan hjälpa en ibland, har använt det någon gång under detta kursmoment för att få se originalkoden.
+
+
+
 Kmom05
 =========================
 
