@@ -22,7 +22,10 @@ class CommentController implements InjectionAwareInterface
      */
     public function viewAll()
     {
-        $this->di->get("comment")->viewAll();
+        $data = $this->di->get("comment")->viewAll();
+
+        $this->di->get("view")->add("comment/main", ["content" => $data]);
+        $this->di->get("pageRender")->renderPage(["title" => "All comments"]);
     }
 
     /**
@@ -32,7 +35,8 @@ class CommentController implements InjectionAwareInterface
      */
     public function newPost()
     {
-        $this->di->get("comment")->newPost();
+        $this->di->get("view")->add("comment/new_comment");
+        $this->di->get("pageRender")->renderPage(["title" => "New comment"]);
     }
 
     /**
@@ -42,7 +46,8 @@ class CommentController implements InjectionAwareInterface
      */
     public function newPostAction()
     {
-        $this->di->get("comment")->newPostAction();
+        $this->di->get("view")->add("comment/new_comment_action");
+        $this->di->get("pageRender")->renderPage(["title" => "New comment action"]);
     }
 
     /**
@@ -52,7 +57,10 @@ class CommentController implements InjectionAwareInterface
      */
     public function showOnePost($id)
     {
-        $this->di->get("comment")->showOnePost($id);
+        $data = $this->di->get("comment")->showOnePost($id);
+
+        $this->di->get("view")->add("comment/post", ["content" => $data]);
+        $this->di->get("pageRender")->renderPage(["title" => "Post id ".$id]);
     }
 
     /**
@@ -62,7 +70,10 @@ class CommentController implements InjectionAwareInterface
      */
     public function editPost($id)
     {
-        $this->di->get("comment")->editPost($id);
+        $data = $this->di->get("comment")->editPost($id);
+
+        $this->di->get("view")->add("comment/update_comment", ["content" => $data]);
+        $this->di->get("pageRender")->renderPage(["title" => "Update comment"]);
     }
 
     /**
@@ -72,7 +83,8 @@ class CommentController implements InjectionAwareInterface
      */
     public function editPostAction()
     {
-        $this->di->get("comment")->editPostAction();
+        $this->di->get("view")->add("comment/update_comment_action");
+        $this->di->get("pageRender")->renderPage(["title" => "Update comment action"]);
     }
 
     /**

@@ -53,31 +53,7 @@ class CommentModel implements ConfigureInterface, InjectionAwareInterface
     {
         $sql = "SELECT * FROM `ramverk1_comment`";
 
-        $data = $this->di->get("database")->executeFetchAll($sql);
-        $this->di->get("view")->add("comment/main", ["content" => $data]);
-        $this->di->get("pageRender")->renderPage(["title" => "All comments"]);
-    }
-
-    /**
-     * New post
-     *
-     * @return void
-     */
-    public function newPost()
-    {
-        $this->di->get("view")->add("comment/new_comment");
-        $this->di->get("pageRender")->renderPage(["title" => "New comment"]);
-    }
-
-    /**
-     * New post action
-     *
-     * @return void
-     */
-    public function newPostAction()
-    {
-        $this->di->get("view")->add("comment/new_comment_action");
-        $this->di->get("pageRender")->renderPage(["title" => "New comment action"]);
+        return $this->di->get("database")->executeFetchAll($sql);
     }
 
     /**
@@ -89,9 +65,7 @@ class CommentModel implements ConfigureInterface, InjectionAwareInterface
     {
         $sql = "SELECT * FROM ramverk1_comment where id = ?";
 
-        $data = $this->di->get("database")->executeFetch($sql, [$id]);
-        $this->di->get("view")->add("comment/post", ["content" => $data]);
-        $this->di->get("pageRender")->renderPage(["title" => "Post id ".$id]);
+        return $this->di->get("database")->executeFetch($sql, [$id]);
     }
 
     /**
@@ -103,21 +77,7 @@ class CommentModel implements ConfigureInterface, InjectionAwareInterface
     {
         $sql = "SELECT * FROM ramverk1_comment where id = ?";
 
-        $data = $this->di->get("database")->executeFetch($sql, [$id]);
-
-        $this->di->get("view")->add("comment/update_comment", ["content" => $data]);
-        $this->di->get("pageRender")->renderPage(["title" => "Update comment"]);
-    }
-
-    /**
-     * Edit post action
-     *
-     * @return void
-     */
-    public function editPostAction()
-    {
-        $this->di->get("view")->add("comment/update_comment_action");
-        $this->di->get("pageRender")->renderPage(["title" => "Update comment action"]);
+        return $this->di->get("database")->executeFetch($sql, [$id]);
     }
 
     /**
