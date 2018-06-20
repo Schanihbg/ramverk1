@@ -126,6 +126,30 @@ Det kan vara bra ifall man vill skapa om ett projekt hela tiden, men tänker mig
 Kmom05
 =========================
 
+**Hur gick arbetet med att lyfta ut koden ur me-sidan och placera i en egen modul?**
+
+Det gick enkelt, trodde först att det bara räckte med `comment`, men tydligen berodde den på min egna `Gravatar` och `User` moduler som jag fick slänga med i `Comment` modulen.
+Så det blir ett ”komplett” system för kommentarer. Hur komplett den är, det är en definitionsfråga, men den fungerar.
+
+**Flöt det på bra med GitHub och kopplingen till Packagist?**
+
+Jajamensan, inga problem. La även till en service hook så den automagiskt i Packagist plockar från Github.
+
+**Hur gick det att åter installera modulen i din me-sida med composer, kunde du följa du din installationsmanual?**
+
+Det gick bra att göra att följa min egen manual, det är ju jag som har skrivit den. Men jag testade en gång innan med en scaffoldad anax, det gick smidigt där. Sen testade jag på befintliga `anax` och det gick galant.
+
+**Hur väl lyckas du enhetstesta din modul och hur mycket kodtäckning fick du med?**
+
+Det var väldigt svårt att komma igång med enhetstestningen, övningen visade inte så mycket hur man skulle göra. Det står förvisso i repot för Remserver, men det står inget i artikeln.
+Men lite om och men samt hjälp från mos och kolla på hur andra har gjort, så lyckades jag få ihop fyra enhetstester. Det blev inte så bra kodtäckning fick 11%, men jag ser det mer som proof of conecpt att det fungerar. Jag är nöjd!
+
+**Några reflektioner över skillnaden med och utan modul?**
+
+Är väl smidigt att inte låta användaren göra en massa kodande och bugfix. Man låter användaren bara lägga till config och routes så har man ett fungerande system. Det blir smidigare att inte behöva skapa ett eget.
+
+
+
 Kmom06
 =========================
 
