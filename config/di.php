@@ -130,7 +130,7 @@ return [
         "comment" => [
             "shared" => true,
             "callback" => function () {
-                $comment = new \Anax\Comment\CommentModel();
+                $comment = new \Schanihbg\Comment\CommentModel();
                 $comment->configure("remserver.php");
                 $comment->injectSession($this->get("session"));
                 $comment->setDI($this);
@@ -140,7 +140,7 @@ return [
         "commentController" => [
             "shared" => false,
             "callback" => function () {
-                $commentController = new \Anax\Comment\CommentController();
+                $commentController = new \Schanihbg\Comment\CommentController();
                 $commentController->setDI($this);
                 return $commentController;
             }
@@ -148,14 +148,14 @@ return [
         "gravatar" => [
             "shared" => true,
             "callback" => function () {
-                $gravatar = new \Anax\Gravatar\GravatarModel();
+                $gravatar = new \Schanihbg\Gravatar\GravatarModel();
                 return $gravatar;
             }
         ],
         "gravatarController" => [
             "shared" => false,
             "callback" => function () {
-                $gravatarController = new \Anax\Gravatar\GravatarController();
+                $gravatarController = new \Schanihbg\Gravatar\GravatarController();
                 $gravatarController->setDI($this);
                 return $gravatarController;
             }
@@ -180,7 +180,7 @@ return [
         "userController" => [
             "shared" => true,
             "callback" => function () {
-                $obj = new \Anax\User\UserController();
+                $obj = new \Schanihbg\User\UserController();
                 $obj->setDI($this);
                 return $obj;
             }
