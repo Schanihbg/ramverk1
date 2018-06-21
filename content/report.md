@@ -153,5 +153,26 @@ Men lite om och men samt hjälp från mos och kolla på hur andra har gjort, så
 Kmom06
 =========================
 
+**Har du någon erfarenhet av automatiserade testar och CI sedan tidigare?**
+
+Jag har fått lite erfarenheter från att göra en CI-kedja i ramverk2. Men annars har jag inte jobbat med det förut.
+
+**Hur ser du på begreppen, bra, onödigt, nödvändigt, tidskrävande?**
+
+Det är bra att ha, man kan pusha koden och låta verktygen kolla igenom koda för att se om det fungerar. Man slipper ha flera versioner av PHP till exempel, då kan en byggtjänst kolla mot version 5.6 och 7.2 för att se om den beter sig som den ska.
+
+**Hur stor kodtäckning lyckades du uppnå i din modul?**
+
+Fick det till lilla 11%, men hade nog kunnat få mer om jag skrivit om mina funktioner. Just nu är funktionerna lite för spretiga och inte så testbara. Jag blandar in lite redirects och sånt som gör det lite svårare i mina controllers.
+
+**Berätta hur det gick att integrera mot de olika externa tjänsterna?**
+
+Det gick enkelt och snabbt. Flesta tjänsterna tillåter att man loggar in via github och sen skannar de igenom dina repon. Du väljer enkelt vilket repo du vill att en tjänst ska jobba med. Efter det är det bara att pusha dina ändringar och låta tjänsten kolla koden.
+
+**Vilken extern tjänst uppskattade du mest, eller har du förslag på ytterligare externa tjänster att använda?**
+
+Travis är en byggtjänst för att kolla inget går sönder på flera olika versioner. Scrutinizer kollar mer på kodtäckning och duplicerad kod. Överlag uppskattar jag nog Scrutinizer mer, för där får man information om duplicerad kod, skrivit fel i docblock och att man kommenterat ut kod som fungerar.
+
+
 Kmom10
 =========================
