@@ -176,3 +176,26 @@ Travis är en byggtjänst för att kolla inget går sönder på flera olika vers
 
 Kmom10
 =========================
+
+**Grundkraven**
+
+Valde att man som anonym kunde se alla kommentarer och taggar, men att man måste vara inloggad för att kunna göra en ny kommentar. Vilket är smidigt för då kan man se frågor och svar direkt, annars kan det kännas jobbigt för användaren att först registrera sig och en för att kolla på frågan. Många extra steg i mitt tycke.
+Jag valde att bara ha taggar på nya kommentarer, det blir lite som Stack Overflow. För att ”hjälpa” hitta tråden via en tagg.
+För design till sidan använde jag mig utav Bootstrap 4, vilket gör att jag inte behöver tänka så mycket på responsivitet och andra småsaker. Många av elementen är just saker från Bootstrap, till exempel `card`. Vilket är smidigt, då de kan automatiskt anpassa sig till formatet på enheten man kollar via.
+
+**Extrakraven**
+Jag gjorde inga extra krav då jag inte hade riktigt orken att göra det. Enda jag har lagt lite extra tid på är att man kan söka igenom en tagg i en sträng i databasen:
+` SELECT * FROM `ramverk1_proj_comment` WHERE MATCH(tags) AGAINST (?);`.
+Enda som krävs är att man har en fulltext key i tabellen ` ALTER TABLE `ramverk1_proj_comment` ADD FULLTEXT KEY `tags` (`tags`);`.
+
+
+**Allmänt om projektet**
+
+Har inte varit så svårt projekt. Har mest varit mycket tänkande om hur man ska strukturera upp kommentarerna och hur allt det ska fungera med taggar. Fick skriva om min SQL kod ett par gånger för att nå slutprodukten. Hade dock problem med att få min SQL procedurer att fungera, men det räckte med att ändra `shared` från `true` till `false` i `di.php`.
+Gjorde inga enhetstester till projektet, då jag hade för många filer att testa mot. Delvis för att många hade pagerender funktioner som gör att den inte går att testa ordentligt.
+Min Travis och Scrutinizer CI klagar inte, allting rullar på fint. Förutom första gången då min editor sparade config-filer som `.yaml` istället för `.yml` som krävs för att respektive byggtjänst ska läsa av filen.
+
+**Kursen**
+
+Intressant kurs, man har fått lära sig rätt mycket om hur ett ramverk kan fungera till exempel di-magin. Dock är det ju mycket copy-paste från texter och dylikt.
+Väldigt intressant att få jobba med CI, har haft väldigt stor nytta av att låta ”andra” kolla igenom koden och bygga Makefile. Tyvärr så klagade Scrutinizer väldigt mycket på koden man fick av mos, kanske ska se över det. Fick heller inte till att den skulle använda sig utav PSR2, vilket blev att den ofta klagade på att det saknades mellanrum runt t.ex. array `$anArray[0]` som skulle vara `$anArray[ 0 ]`.
